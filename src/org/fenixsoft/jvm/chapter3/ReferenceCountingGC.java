@@ -26,6 +26,11 @@ public class ReferenceCountingGC {
         objB = null;
 
         // 假设在这行发生GC，objA和objB是否能被回收？
+        /**
+         * 答：如果垃圾回收判断方法是引用计数法的话，不会
+         * 因为他们互相引用着对方，导致他们的引用计数器都不为0。
+         * 于是，引用计数算法无法同之GC收集器回收他们
+         * */
         System.gc();
     }
 }
